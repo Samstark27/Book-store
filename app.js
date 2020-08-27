@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var book = require('../mern-admin-portal-project/route/book.js');
-var auth = require('../mern-admin-portal-project/route/auth.js');
+var book = require('./routes/book.js');
+var auth = require('./routes/auth.js');
 var app = express();
 
 var mongoose = require('mongoose');
@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost:27017/adminportaldb',{
-    useNewUrlParser:true,useUnifiedTopology: true,
+    useNewUrlParser:true,
     promiseLibrary: require('bluebird')} )
     
     .then(() => console.log('Connection is successful'))
@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.json({ error: err })
+  res.json({ error: err });
 });
 
 module.exports = app;

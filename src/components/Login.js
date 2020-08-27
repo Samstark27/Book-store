@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import'./Login.js';
 
 
 class Login extends Component {
@@ -15,7 +16,7 @@ class Login extends Component {
         };
     }
     onChange = (e) => {
-        const state = this.state
+        const state = this.state;
         state[e.target.name] = e.target.value;
         this.setState(state);
     }
